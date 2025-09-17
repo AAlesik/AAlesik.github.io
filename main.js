@@ -12,7 +12,8 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && dialog.o
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     const src = card.getAttribute('data-src');
-    lbImg.src = src; lbImg.alt = card.getAttribute('data-title') + ' – Großansicht';
+    lbImg.src = src; 
+    lbImg.alt = card.getAttribute('data-title') + ' – Großansicht';
     lbTitle.textContent = card.getAttribute('data-title');
     lbTags.textContent = card.getAttribute('data-tags');
     dialog.showModal();

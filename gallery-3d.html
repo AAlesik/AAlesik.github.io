@@ -32,17 +32,13 @@
     <div class="container">© <span id="year"></span> [Dein Name]</div>
   </footer>
 
-  <dialog id="lightbox" aria-label="3D Vorschau" aria-busy="false">
+  <dialog id="lightbox" aria-label="3D Vorschau">
     <div class="lightbox-head">
       <strong id="lb-title"></strong>
       <button id="lb-close" class="btn" style="margin-left:auto">Schließen</button>
     </div>
     <div class="lightbox-body">
       <div id="lb-stage" aria-live="polite"></div>
-      <div class="lb-progress" hidden>
-        <span class="bar"></span>
-        <span class="label" aria-live="polite" aria-atomic="true">0%</span>
-      </div>
       <p id="lb-tags" class="muted" style="margin:.6rem 0 1rem"></p>
     </div>
   </dialog>

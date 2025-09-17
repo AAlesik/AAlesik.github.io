@@ -29,8 +29,8 @@ async function ensureThree() {
   if (threeCache) return threeCache;
   const [THREE, controlsMod, gltfMod] = await Promise.all([
     import('https://unpkg.com/three@0.161.0/build/three.module.js'),
-    import('https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js'),
-    import('https://unpkg.com/three@0.161.0/examples/jsm/loaders/GLTFLoader.js')
+    import('https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js?module'),
+    import('https://unpkg.com/three@0.161.0/examples/jsm/loaders/GLTFLoader.js?module')
   ]);
   threeCache = { THREE, OrbitControls: controlsMod.OrbitControls, GLTFLoader: gltfMod.GLTFLoader };
   return threeCache;
@@ -125,7 +125,7 @@ if (!reduceMotion && document.getElementById('bg')) {
   (async () => {
     const [THREE, controlsMod] = await Promise.all([
       import('https://unpkg.com/three@0.161.0/build/three.module.js'),
-      import('https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js')
+      import('https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js?module')
     ]);
     const { OrbitControls } = controlsMod;
     const canvas = document.getElementById('bg');

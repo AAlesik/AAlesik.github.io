@@ -115,7 +115,7 @@ if (pageRoot) {
   } else if (mode === '3d') {
     data.threeD.forEach(item => pageRoot.appendChild(makeCard(item)));
   } else if (mode === 'featured') {
-    data.twoD.slice(0,6).forEach(item => pageRoot.appendChild(makeCard(item)));
+    data.twoD.slice(0,3).forEach(item => pageRoot.appendChild(makeCard(item)));
   }
 }
 

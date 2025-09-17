@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Modelle – [Dein Name]</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="brand-badge" aria-hidden="true"></span> <a href="index.html">[Dein Name]</a></div>
+      <ul>
+        <li><a href="gallery-2d.html" class="btn">2D Galerie</a></li>
+        <li><a href="gallery-3d.html" class="btn">3D Modelle</a></li>
+        <li><a href="index.html#contact" class="btn primary"><span class="dot"></span> Kontakt</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" aria-label="3D Galerie">
+      <div class="section-head">
+        <h2>3D Modelle (GLB/GLTF)</h2>
+        <p class="muted">Klicke für interaktive Vorschau</p>
+      </div>
+      <div id="grid-3d" class="grid" data-page="3d"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> [Dein Name]</div>
+  </footer>
+
+  <dialog id="lightbox" aria-label="3D Vorschau">
+    <div class="lightbox-head">
+      <strong id="lb-title"></strong>
+      <button id="lb-close" class="btn" style="margin-left:auto">Schließen</button>
+    </div>
+    <div class="lightbox-body">
+      <div id="lb-stage" aria-live="polite"></div>
+      <p id="lb-tags" class="muted" style="margin:.6rem 0 1rem"></p>
+    </div>
+  </dialog>
+
+  <script src="data/gallery-data.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

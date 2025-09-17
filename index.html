@@ -1,15 +1,19 @@
 <!--
-  Concept Artist Portfolio – Three.js (Multi‑File Split)
-  -----------------------------------------------------
-  📁 Projektstruktur
-  ├─ index.html
-  ├─ styles.css
-  └─ main.js
+  Concept Artist Portfolio – Three.js (Multi‑Page, Data‑Driven)
+  -------------------------------------------------------------
+  📁 Projektstruktur (neu)
+  ├─ index.html                (Landing, Teaser)
+  ├─ gallery-2d.html           (2D/Concept Galerie – DATENGETRIEBEN)
+  ├─ gallery-3d.html           (3D‑Modelle Preview – DATENGETRIEBEN)
+  ├─ styles.css                (globales Styling)
+  ├─ main.js                   (UI + Three.js + Renderlogik)
+  ├─ data/
+  │   └─ gallery-data.js       ("CMS"-artige Datenquelle – hier nur Einträge ergänzen)
+  └─ assets/                   (Bilder, GLB/GLTF, PDFs)
 
-  Anleitung
-  1) Lege diese drei Dateien im Repo‑Root an (oder in einem /docs Ordner, wenn du Pages so konfigurierst).
-  2) Erstelle einen Ordner /assets mit deinen Bildern und PDFs.
-  3) Öffne index.html lokal zur Vorschau, oder pushe und aktiviere GitHub Pages.
+  🛠️ Nutzung wie ein Mini‑CMS
+  - Füge/ändere Einträge ausschließlich in data/gallery-data.js.
+  - Die Seiten rendern ihre Galerien automatisch anhand der Daten.
 -->
 
 <!-- ========================= index.html ========================= -->
@@ -31,10 +35,10 @@
 <body>
   <header>
     <div class="container nav" role="navigation" aria-label="Hauptnavigation">
-      <div class="brand"><span class="brand-badge" aria-hidden="true"></span> <a href="#top">[Dein Name]</a></div>
+      <div class="brand"><span class="brand-badge" aria-hidden="true"></span> <a href="index.html">[Dein Name]</a></div>
       <ul>
-        <li><a href="#gallery" class="btn">Arbeiten</a></li>
-        <li><a href="#projects" class="btn">Projekte</a></li>
+        <li><a href="gallery-2d.html" class="btn">2D Galerie</a></li>
+        <li><a href="gallery-3d.html" class="btn">3D Modelle</a></li>
         <li><a href="#about" class="btn">Über mich</a></li>
         <li><a href="#contact" class="btn primary"><span class="dot"></span> Kontakt</a></li>
       </ul>
@@ -52,86 +56,20 @@
         <h1>[Dein Name]</h1>
         <p class="subtitle">Environments, Props & Keyframes mit Fokus auf stimmige Welten, glaubwürdige Materialien und klare Story Beats.</p>
         <div class="cta">
-          <a href="#gallery" class="btn primary">Portfolio ansehen</a>
+          <a href="gallery-2d.html" class="btn primary">2D‑Portfolio ansehen</a>
+          <a href="gallery-3d.html" class="btn">3D‑Previews</a>
           <a href="assets/DeinName_CV.pdf" class="btn" download>CV / PDF</a>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="container" aria-label="Portfolio Galerie">
+    <!-- FEATURED (zieht 6 Einträge automatisch aus den 2D‑Daten) -->
+    <section class="container" aria-label="Ausgewählte Arbeiten">
       <div class="section-head">
         <h2>Ausgewählte Arbeiten</h2>
-        <p class="muted">Klicke auf ein Bild für die Großansicht</p>
+        <p class="muted">Mehr in der <a href="gallery-2d.html">2D‑Galerie</a></p>
       </div>
-      <div class="grid">
-        <!-- Beispielkarten – ersetze die Pfade/Texte durch deine Arbeiten -->
-        <article class="card" data-title="Dunes Outpost" data-tags="Environment, Matte" data-src="https://www.europaeischer-wettbewerb.de/wp-content/uploads/2015/05/02_4-2_Ales%E2%95%A0%C3%AEik-694x1024.jpg">
-          <figure><img src="https://www.europaeischer-wettbewerb.de/wp-content/uploads/2015/05/02_4-2_Ales%E2%95%A0%C3%AEik-694x1024.jpg" alt="Dunes Outpost – Environment Concept" loading="lazy"></figure>
-          <div class="meta"><span>Dunes Outpost</span><span class="tag">Environment</span></div>
-        </article>
-        <article class="card" data-title="Orbital Dock" data-tags="Sci‑Fi, Hard‑Surface" data-src="assets/work_02.webp">
-          <figure><img src="assets/work_02_thumb.webp" alt="Orbital Dock – Sci‑Fi Concept" loading="lazy"></figure>
-          <div class="meta"><span>Orbital Dock</span><span class="tag">Sci‑Fi</span></div>
-        </article>
-        <article class="card" data-title="Deep Forest Shrine" data-tags="Fantasy, Keyframe" data-src="assets/work_03.webp">
-          <figure><img src="assets/work_03_thumb.webp" alt="Deep Forest Shrine – Fantasy Keyframe" loading="lazy"></figure>
-          <div class="meta"><span>Forest Shrine</span><span class="tag">Keyframe</span></div>
-        </article>
-        <article class="card" data-title="Courier Bot" data-tags="Prop, Design" data-src="assets/work_04.webp">
-          <figure><img src="assets/work_04_thumb.webp" alt="Courier Bot – Prop Design" loading="lazy"></figure>
-          <div class="meta"><span>Courier Bot</span><span class="tag">Prop</span></div>
-        </article>
-        <article class="card" data-title="Glacier City" data-tags="Environment, Color" data-src="assets/work_05.webp">
-          <figure><img src="assets/work_05_thumb.webp" alt="Glacier City – Environment Concept" loading="lazy"></figure>
-          <div class="meta"><span>Glacier City</span><span class="tag">Environment</span></div>
-        </article>
-        <article class="card" data-title="Desert Rover" data-tags="Vehicle, Design" data-src="assets/work_06.webp">
-          <figure><img src="assets/work_06_thumb.webp" alt="Desert Rover – Vehicle Design" loading="lazy"></figure>
-          <div class="meta"><span>Desert Rover</span><span class="tag">Vehicle</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS / CASE STUDIES -->
-    <section id="projects" class="container projects" aria-label="Projekte & Case Studies">
-      <div class="section-head">
-        <h2>Projekte & Case Studies</h2>
-        <p class="muted">Kurzportraits mit Ziel, Prozess und Ergebnis</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <figure><img src="assets/case_01.webp" alt="Case Study – Worldbuilding Project" loading="lazy"></figure>
-          <div class="meta">
-            <div>
-              <h3 style="margin: .2rem 0 .3rem">Worldbuilding: "Echoes of the Rift"</h3>
-              <p class="muted">Visuelles Leitsystem für ein Sci‑Fi‑Spiel. Moodboards → Thumbnails → 3D‑Blockout → Paintover → Final.</p>
-            </div>
-            <span class="tag">Worldbuilding</span>
-            <span class="tag">Layout</span>
-            <span class="tag">Color Script</span>
-          </div>
-          <div class="meta">
-            <a class="btn" href="#" aria-disabled="true">Case öffnen</a>
-            <a class="btn" href="#" aria-disabled="true">ArtBook (PDF)</a>
-          </div>
-        </article>
-        <article class="card">
-          <figure><img src="assets/case_02.webp" alt="Case Study – Prop Design Suite" loading="lazy"></figure>
-          <div class="meta">
-            <div>
-              <h3 style="margin: .2rem 0 .3rem">Prop Suite: "Frontier Tools"</h3>
-              <p class="muted">Iterativer Design‑Prozess mit Funktionalität im Fokus. Line‑Explorationen → 3D‑Kitbash → Materialstudien.</p>
-            </div>
-            <span class="tag">Prop Design</span>
-            <span class="tag">Hard‑Surface</span>
-          </div>
-          <div class="meta">
-            <a class="btn" href="#" aria-disabled="true">Case öffnen</a>
-            <a class="btn" href="#" aria-disabled="true">Sheets (PDF)</a>
-          </div>
-        </article>
-      </div>
+      <div id="featured-grid" class="grid" data-page="featured"></div>
     </section>
 
     <!-- ABOUT -->
@@ -181,18 +119,19 @@
     <div class="container">© <span id="year"></span> [Dein Name] — Alle Rechte vorbehalten.</div>
   </footer>
 
-  <!-- LIGHTBOX DIALOG -->
-  <dialog id="lightbox" aria-label="Bildvorschau">
+  <!-- LIGHTBOX DIALOG (global) -->
+  <dialog id="lightbox" aria-label="Vorschau">
     <div class="lightbox-head">
       <strong id="lb-title"></strong>
       <button id="lb-close" class="btn" style="margin-left:auto">Schließen</button>
     </div>
     <div class="lightbox-body">
-      <img id="lb-img" alt="" />
+      <div id="lb-stage" aria-live="polite"></div>
       <p id="lb-tags" class="muted" style="margin:.6rem 0 1rem"></p>
     </div>
   </dialog>
 
+  <script src="data/gallery-data.js"></script>
   <script type="module" src="main.js"></script>
 </body>
 </html>
